@@ -1,0 +1,29 @@
+﻿Code Produit;Intitulé produit
+CART;Détention carte bancaire
+CJEU;Détention carte jeune
+PACKSERV;Détention Package Services DAV 
+DAV;Détention DAV - Compte Courant - Compte Chèque 
+DECAUTH;Détention Découvert Authorisé
+CPAI;Détention carte de paiement
+CARTE;Détention cartes
+SEXE;Sexe_Leader_foyer
+auto;Contrat Assurance Auto
+GAV;Contrat Assurance GAV 
+PJ;Contrat Assistance Juridique
+Sante;Contrat Assurance Santé
+SEVDOM;Abonnement offre de service à domicile
+ACTION;Top actions
+ASSVIEEURO;Top ass vie ou pep ass en euros
+CREDCONSO;Crédit conso
+EPARLOG;Compte epargne logement
+ASSMH;Contrat Habitation
+CREDHAB;Crédit habitat
+CSL;Comptes sur livret
+OBLIGATION;Obligations
+SICAVFCP;SICAV FCP
+EPARBANC;Epargnes Bancaires
+ASSPREVDEC;Assurance Prévoyance décès
+ASSDEP;Assurance Prévoyance dépendance/invalidité
+CREDRENOV;Crédit Renovation 
+ASSPREVDECDEP;Détention Assurances prévoyance déces ou invalidité
+id;Identifiant
