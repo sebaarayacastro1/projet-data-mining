@@ -1,0 +1,8 @@
+# Ignorer les données
+data
+
+# Environnements virtuels Python
+venv/
+.venv/
+env/
+
