@@ -1,0 +1,27 @@
+produit,libelle,taux_F_%,taux_M_%,p_value,ecart_M_moins_F_pts
+CREDHAB,Crédit habitat,18.0,36.4,0.0,18.4
+CREDCONSO,Crédit conso,38.7,48.2,1.1312347445864786e-138,9.5
+auto,Contrat Assurance Auto,28.6,35.9,2.9062164643301884e-92,7.3
+EPARLOG,Compte epargne logement,33.1,39.4,3.167154691430497e-63,6.3
+ACTION,Top actions,18.8,24.2,5.758489671104721e-65,5.4
+Sante,Contrat Assurance Santé,13.2,10.1,9.82887856461366e-39,-3.1
+GAV,Contrat Assurance GAV,8.8,11.7,1.4967268197466557e-35,2.9
+CPAI,Détention carte de paiement,78.5,81.2,6.386479153724157e-19,2.7
+DECAUTH,Détention Découvert Authorisé,62.8,65.1,3.8149413993058634e-10,2.3
+PJ,Contrat Assistance Juridique,43.9,41.7,9.654290018430467e-09,-2.2
+OBLIGATION,Obligations,10.4,8.5,3.41272348885038e-17,-1.9
+ASSVIEEURO,Top ass vie ou pep ass en euros,22.9,21.4,4.048021631006244e-06,-1.5
+SEVDOM,Abonnement offre de service à domicile,2.5,1.1,7.291657315202327e-46,-1.4
+CREDRENOV,Crédit Renovation,11.0,12.3,2.0078859556105347e-07,1.3
+CART,Détention carte bancaire,84.7,85.7,0.0005098082111518429,1.0
+SICAVFCP,SICAV FCP,13.4,14.4,7.595536051802705e-05,1.0
+CARTE,Détention cartes,1.2,2.2,3.458123814501271e-20,1.0
+CJEU,Détention carte jeune,11.7,10.7,2.6960811939796033e-05,-1.0
+CSL,Comptes sur livret,84.8,84.0,0.006743817482631728,-0.8
+ASSPREVDECDEP,Détention Assurances prévoyance déces ou invalidité,17.4,16.7,0.008387932439716929,-0.7
+ASSDEP,Assurance Prévoyance dépendance/invalidité,2.7,2.0,2.5734833904889288e-09,-0.7
+ASSMH,Contrat Habitation,63.8,64.4,0.1032098344322588,0.6
+DAV,Détention DAV - Compte Courant - Compte Chèque,98.8,99.3,3.106678100492016e-10,0.5
+PACKSERV,Détention Package Services DAV,82.7,83.1,0.18938275109431946,0.4
+EPARBANC,Epargnes Bancaires,7.4,7.0,0.02451611728832803,-0.4
+ASSPREVDEC,Assurance Prévoyance décès,15.1,15.1,0.9004217322050548,0.0
