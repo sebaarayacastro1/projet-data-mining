@@ -1,8 +1,14 @@
-# Ignorer les données
-data
-
-# Environnements virtuels Python
-venv/
+# Environnement virtuel
 .venv/
-env/
-
+venv/
+# Fichiers Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+# Notebooks
+.ipynb_checkpoints/
+# Données locales, non suivies
+/data/*
+!/data/.gitkeep
+# Fichiers système
+.DS_Store
