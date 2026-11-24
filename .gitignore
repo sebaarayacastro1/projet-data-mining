@@ -10,5 +10,6 @@ __pycache__/
 # Données locales, non suivies
 /data/*
 !/data/.gitkeep
+/reports/*
 # Fichiers système
 .DS_Store
