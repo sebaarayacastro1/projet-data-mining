@@ -1,4 +1,4 @@
-"""Scénarios explicites de préparation de la matrice client-produit.
+"""Préparation et contrôle de matrices client-produit.
 
 Aucune suppression définitive ni modification du fichier d'origine.
 """
@@ -26,7 +26,7 @@ def decouper_a_la_premiere_rupture(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.D
 
 
 def base_initiale(df: pd.DataFrame, produits: list[str]) -> pd.DataFrame:
-    """Scénario principal : partie initiale unique par id ; index = id."""
+    """Scénario de référence : partie initiale unique par id ; index = id."""
     verifier_produits(df, produits)
     initial, _, _ = decouper_a_la_premiere_rupture(df)
     if initial['id'].duplicated().any():
@@ -35,7 +35,11 @@ def base_initiale(df: pd.DataFrame, produits: list[str]) -> pd.DataFrame:
 
 
 def base_agregee(df: pd.DataFrame, produits: list[str]) -> pd.DataFrame:
-    """Scénario alternatif : présence d'un produit si au moins une ligne vaut 1."""
+    """Scénario principal : produit présent si au moins une ligne du même ID vaut 1.
+
+    Hypothèse de travail : les lignes d'un même ID sont consolidables.
+    Cette hypothèse n'est pas confirmée par le fichier source.
+    """
     verifier_produits(df, produits)
     return df.groupby('id', sort=True)[produits].max().astype('int8')
 
@@ -68,3 +72,43 @@ def base_identifiants_distincts(df, produits):
         .set_index("id")[produits]
         .copy()
     )
+
+def diagnostic_identifiants(df: pd.DataFrame, produits: list[str]) -> pd.DataFrame:
+    """Résumé des identifiants répétés et de leurs profils de produits."""
+    verifier_produits(df, produits)
+    tailles = df.groupby('id').size()
+    repetes = tailles[tailles > 1].index
+    # Chaque ligne représente le profil binaire complet d'un identifiant.
+    configurations = (
+        df.loc[df['id'].isin(repetes), ['id', *produits]]
+        .drop_duplicates()
+        .groupby('id')
+        .size()
+    )
+    lignes = {
+        'observations_initiales': len(df),
+        'identifiants_distincts': df['id'].nunique(),
+        'identifiants_repetes': len(repetes),
+        'lignes_excedentaires_par_id': len(df) - df['id'].nunique(),
+        'ids_repetes_profils_produits_differents': int((configurations > 1).sum()),
+    }
+    return pd.DataFrame(
+        {'indicateur': list(lignes.keys()), 'valeur': list(lignes.values())}
+    )
+
+
+def verifier_base_agregee(
+    df: pd.DataFrame, produits: list[str], base: pd.DataFrame
+) -> None:
+    """Vérifier la cohérence technique de la matrice agrégée."""
+    verifier_produits(df, produits)
+    if base.index.has_duplicates:
+        raise ValueError('La matrice agrégée contient des identifiants répétés.')
+    if len(base) != df['id'].nunique():
+        raise ValueError('Le nombre de lignes ne correspond pas aux ID distincts.')
+    if list(base.columns) != list(produits):
+        raise ValueError('Les colonnes produits ne correspondent pas au fichier source.')
+    if not base.isin([0, 1]).all().all():
+        raise ValueError('La matrice agrégée contient des valeurs non binaires.')
+    if set(base.index) != set(df['id']):
+        raise ValueError('Certains identifiants ont été perdus ou ajoutés.')
